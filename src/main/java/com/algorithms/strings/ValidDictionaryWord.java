@@ -25,7 +25,6 @@ public class ValidDictionaryWord {
 		for(int i = 0; i < word.length(); i++) {
 			tempWord.append(word.charAt(i));
 			if(dictionary.contains(tempWord.toString())) {
-				System.out.println("TempWord:" + tempWord);
 				if(isValidDictionaryWord(word.substring(i + 1))) {
 					return true;
 				}
