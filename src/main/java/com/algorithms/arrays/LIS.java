@@ -1,4 +1,4 @@
-package com.algorithms.lists;
+package com.algorithms.arrays;
 
 public class LIS {
 	static int max_ref; // stores the LIS
