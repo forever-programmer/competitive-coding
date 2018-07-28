@@ -6,7 +6,7 @@ import java.util.List;
 
 public class StringPermutationWithoutDuplicate {
 	public static void main(String[] args) {
-		final String str = "abc";
+		final String str = "abcc";
 		List<String> permutations = getAllPermutations(str);
 
 		Collections.sort(permutations);

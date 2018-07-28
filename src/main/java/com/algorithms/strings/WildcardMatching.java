@@ -2,7 +2,7 @@ package com.algorithms.strings;
 
 public class WildcardMatching {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		String text = "bacxaababx";
 		String pattern = "*ba*ab?";
 		//String simplifiedPattern = getSimplifiedPattern(pattern);
@@ -48,5 +48,38 @@ public class WildcardMatching {
 		}
 
 		return false;
+	}*/
+
+	public static void main(String[] args) {
+		String word = "bbbba";
+		String pattern = ".*a*a";
+
+		System.out.println(matches(word, pattern, 0, 0));
+	}
+
+
+	private static boolean matches(String word, String pattern, int i, int j) {
+		System.out.println(i + ", " + j);
+		if(i == word.length() && j == pattern.length()) {
+			return true;
+		}
+
+		if(j < pattern.length() - 1 && pattern.charAt(j + 1) == '*') {
+			if(i != word.length() && (word.charAt(i) == pattern.charAt(j) || pattern.charAt(j) == '.')) {
+				return matches(word, pattern, i + 1, j) ||
+				       matches(word, pattern, i, j + 2);
+			} else {
+				return matches(word, pattern, i, j + 2);
+			}
+		} else if(j < pattern.length()) {
+			if(i != word.length() && (word.charAt(i) == pattern.charAt(j) || pattern.charAt(j) == '.')) {
+				return matches(word, pattern, i + 1, j + 1);
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+
 	}
 }
